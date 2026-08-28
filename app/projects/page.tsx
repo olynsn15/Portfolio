@@ -1,15 +1,25 @@
-import Navbar from "@/components/Navbar";
+import { projects } from "@/data/projects";
+import ProjectCard from "@/components/ProjectCard";
 
-export default function Projects() {
+export default function ProjectsPage() {
   return (
-    <>
-      <main className="section">
-        <div className="section-content">
-          <p className="eyebrow">SELECTED WORK</p>
-
-          <h1>Projects.</h1>
+    <main className="projects-page">
+      <section className="projects-section">
+        <div className="section-header">
+          <span>PROJECTS</span>
+          <span>SELECTED WORK</span>
         </div>
-      </main>
-    </>
+
+        <div className="projects-grid">
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={project.slug}
+              project={project}
+              number={index + 1}
+            />
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }

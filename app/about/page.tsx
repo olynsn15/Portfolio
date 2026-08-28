@@ -21,13 +21,6 @@ const experiences = [
   },
 ];
 
-const interests = [
-  "Interaction design",
-  "Motion",
-  "Product thinking",
-  "Creative technology",
-];
-
 export default function About() {
   return (
     <main className="about-page">
@@ -36,9 +29,8 @@ export default function About() {
       ========================================= */}
 
       <section className="about-intro">
-        <div className="about-eyebrow">
+        <div className="section-header">
           <span>ABOUT ME</span>
-          <span>01</span>
         </div>
 
         <div className="about-headline">
@@ -50,9 +42,9 @@ export default function About() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            Building with
+            Well hello
             <br />
-            <span className="about-typewriter">purpose.</span>
+            <span className="about-typewriter">there!</span>
           </motion.h1>
         </div>
 
@@ -65,10 +57,6 @@ export default function About() {
             duration: 0.7,
           }}
         >
-          <div className="about-intro-label">
-            <span>A LITTLE ABOUT ME</span>
-          </div>
-
           <div className="about-intro-text">
             <p>
               I&apos;m Carolyn, a Mobile Application and Technology student and
@@ -80,35 +68,15 @@ export default function About() {
               I&apos;m curious by nature, always learning, and happiest when I
               get to build something with other people.
             </p>
+
+            <p>
+              I like exploring ideas from both the product and technical side. I
+              enjoy moving between design and development — thinking about how
+              something should feel, how it should work, and how the two can
+              come together into one experience.
+            </p>
           </div>
         </motion.div>
-      </section>
-
-      {/* =========================================
-          HOW I WORK
-      ========================================= */}
-
-      <section className="about-section about-work">
-        <div className="about-section-header">
-          <span>02</span>
-          <span>HOW I LIKE TO WORK</span>
-        </div>
-
-        <div className="about-work-content">
-          <h2>
-            I like exploring ideas from
-            <br />
-            both the <em>product</em> and
-            <br />
-            <em>technical</em> side.
-          </h2>
-
-          <p>
-            I enjoy moving between design and development — thinking about how
-            something should feel, how it should work, and how the two can come
-            together into one experience.
-          </p>
-        </div>
       </section>
 
       {/* =========================================
@@ -116,9 +84,23 @@ export default function About() {
       ========================================= */}
 
       <section className="about-section about-experience">
-        <div className="about-section-header">
-          <span>03</span>
+        <div className="section-header">
           <span>EXPERIENCE</span>
+        </div>
+
+        <div className="about-headline">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
+            Some of
+            <br />
+            <span className="about-typewriter">the things I did</span>
+          </motion.h1>
         </div>
 
         <div className="experience-list">
@@ -143,21 +125,17 @@ export default function About() {
                 duration: 0.6,
               }}
             >
-              <div className="experience-year">{experience.year}</div>
-
               <div className="experience-main">
                 <h3>{experience.title}</h3>
                 <p>{experience.role}</p>
               </div>
 
-              <div className="experience-arrow">→</div>
+              <div className="experience-year">{experience.year}</div>
             </motion.div>
           ))}
         </div>
 
         <div className="about-cv">
-          <p>Want to know more about my experience?</p>
-
           <a
             href="/cv.pdf"
             target="_blank"
@@ -167,55 +145,6 @@ export default function About() {
             View my CV
             <span>→</span>
           </a>
-        </div>
-      </section>
-
-      {/* =========================================
-          CURRENTLY CURIOUS ABOUT
-      ========================================= */}
-
-      <section className="about-section about-curious">
-        <div className="about-section-header">
-          <span>04</span>
-          <span>CURRENTLY CURIOUS ABOUT</span>
-        </div>
-
-        <div className="curious-content">
-          <div className="curious-intro">
-            <h2>
-              Always learning,
-              <br />
-              always exploring.
-            </h2>
-          </div>
-
-          <div className="curious-list">
-            {interests.map((interest, index) => (
-              <motion.div
-                key={interest}
-                className="curious-item"
-                initial={{
-                  opacity: 0,
-                  x: -15,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
-                viewport={{
-                  once: true,
-                  amount: 0.5,
-                }}
-                transition={{
-                  delay: index * 0.08,
-                  duration: 0.5,
-                }}
-              >
-                <span>0{index + 1}</span>
-                <span>{interest}</span>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
     </main>
