@@ -1,0 +1,289 @@
+/* =========================================
+   ABOUT PAGE
+========================================= */
+
+.about-page {
+  width: 100%;
+
+  min-height: 100vh;
+
+  padding: 140px 7vw 0;
+}
+
+/* =========================================
+   INTRO
+========================================= */
+
+.about-intro {
+  padding-bottom: 160px;
+}
+
+.about-eyebrow,
+.section-header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid #ddd;
+
+  font-size: 13px;
+
+  letter-spacing: 0.04em;
+
+  color: #777;
+}
+
+.about-headline {
+  padding: 20px 0 120px;
+}
+
+.about-headline h1 {
+  margin: 0;
+
+  font-size: clamp(64px, 10vw, 150px);
+
+  line-height: 0.9;
+
+  font-weight: 500;
+
+  letter-spacing: -0.06em;
+}
+
+.about-typewriter {
+  display: inline-block;
+}
+
+/* =========================================
+   INTRO TEXT
+========================================= */
+
+.about-intro-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 2fr;
+
+  gap: 40px;
+
+  max-width: 1100px;
+
+  margin-left: auto;
+}
+
+.about-intro-label {
+  font-size: 13px;
+
+  color: #777;
+
+  letter-spacing: 0.04em;
+}
+
+.about-intro-text {
+  max-width: 720px;
+}
+
+.about-intro-text p {
+  margin: 0 0 24px;
+
+  font-size: clamp(20px, 2.2vw, 30px);
+
+  line-height: 1.35;
+
+  letter-spacing: -0.025em;
+}
+
+/* =========================================
+   GENERAL SECTION
+========================================= */
+
+.about-section {
+  padding: 120px 0;
+}
+
+.section-header {
+  margin-bottom: 80px;
+}
+
+/* =========================================
+   WORK
+========================================= */
+
+.about-work-content {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr;
+
+  gap: 80px;
+
+  align-items: end;
+}
+
+.about-work-content h2 {
+  margin: 0;
+
+  font-size: clamp(48px, 6vw, 90px);
+
+  line-height: 0.98;
+
+  font-weight: 500;
+
+  letter-spacing: -0.05em;
+}
+
+.about-work-content h2 em {
+  font-style: italic;
+}
+
+/* =========================================
+   EXPERIENCE
+========================================= */
+
+.experience-list {
+  border-top: 1px solid #ddd;
+}
+
+.experience-item {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 30px;
+
+  padding: 28px 0;
+
+  border-bottom: 1px solid #ddd;
+
+  transition:
+    transform 0.35s ease,
+    padding-left 0.35s ease,
+    padding-right 0.35s ease;
+}
+
+.experience-item:hover {
+  transform: translateX(6px);
+
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.experience-main {
+  min-width: 0;
+}
+
+.experience-main h3 {
+  margin: 0 0 6px;
+
+  font-size: clamp(22px, 2vw, 30px);
+
+  font-weight: 500;
+
+  letter-spacing: -0.03em;
+}
+
+.experience-main p {
+  margin: 0;
+
+  font-size: 15px;
+
+  color: #777;
+}
+
+.experience-year {
+  flex-shrink: 0;
+
+  font-size: 13px;
+
+  color: #888;
+
+  white-space: nowrap;
+}
+
+/* =========================================
+   CV
+========================================= */
+
+.about-cv {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 70px;
+}
+
+.about-cv-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: #111;
+
+  text-decoration: none;
+
+  font-size: 18px;
+}
+
+.about-cv-link span {
+  transition: transform 0.3s ease;
+}
+
+.about-cv-link:hover span {
+  transform: translateX(6px);
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 110px 6vw 0;
+  }
+
+  .about-headline {
+    padding: 70px 0 80px;
+  }
+
+  .about-intro-grid,
+  .about-work-content,
+  .curious-content {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .about-section {
+    padding: 90px 0;
+  }
+
+  .experience-item {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    padding: 24px 0;
+  }
+
+  .experience-year {
+    order: -1;
+  }
+
+  .experience-main h3 {
+    font-size: 22px;
+  }
+
+  .about-cv {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 25px;
+  }
+}

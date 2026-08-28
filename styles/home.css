@@ -1,0 +1,226 @@
+/* =================================
+   HOME
+================================= */
+
+.home-section {
+  align-items: center;
+}
+
+.intro {
+  max-width: 520px;
+
+  margin: 40px 0 0;
+
+  font-size: 18px;
+  line-height: 1.6;
+
+  color: var(--muted);
+}
+
+.home-actions {
+  display: flex;
+  gap: 16px;
+
+  margin-top: 36px;
+}
+
+.home-actions button {
+  padding: 14px 22px;
+
+  border: 1px solid var(--foreground);
+  border-radius: 999px;
+
+  background: var(--foreground);
+  color: white;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.home-actions button:hover {
+  background: transparent;
+  color: var(--foreground);
+}
+
+.home-actions .secondary {
+  background: transparent;
+  color: var(--foreground);
+}
+
+.home-actions .secondary:hover {
+  background: var(--foreground);
+  color: white;
+}
+
+/* =================================
+   HERO
+================================= */
+
+.hero {
+  position: relative;
+
+  min-height: 100svh;
+  width: 100%;
+
+  overflow: hidden;
+}
+
+.hero-inner {
+  position: relative;
+
+  min-height: 80svh;
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-name {
+  position: relative;
+
+  z-index: 2;
+
+  margin: 0;
+
+  font-size: clamp(72px, 13vw, 190px);
+  line-height: 0.82;
+
+  font-weight: 500;
+  letter-spacing: -0.065em;
+
+  text-align: center;
+}
+
+/* =================================
+   HERO TAGS
+================================= */
+
+.hero-tags {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 3;
+
+  pointer-events: none;
+}
+
+.magnetic-tag-wrapper {
+  position: absolute;
+
+  width: max-content;
+  height: max-content;
+
+  pointer-events: none;
+}
+
+.hero-tag {
+  position: relative;
+
+  display: inline-block;
+
+  width: max-content;
+
+  padding: clamp(7px, 0.7vw, 10px) clamp(12px, 1.2vw, 18px);
+
+  border: 1px solid #999;
+  border-radius: 999px;
+
+  font-size: clamp(11px, 1.5vw, 18px);
+  font-weight: 500;
+
+  letter-spacing: -0.02em;
+
+  background: white;
+
+  white-space: nowrap;
+
+  cursor: default;
+  user-select: none;
+
+  pointer-events: auto;
+
+  will-change: transform;
+}
+
+/* =================================
+   TAG POSITIONS
+================================= */
+
+.tag-ios {
+  top: 27%;
+  left: 10%;
+}
+
+.tag-design {
+  bottom: 13%;
+  left: 15%;
+}
+
+.tag-product {
+  bottom: 16%;
+  right: 16%;
+}
+
+.tag-builder {
+  top: 22%;
+  right: 8%;
+}
+
+/* =================================
+   HERO STAR
+================================= */
+
+.hero-star {
+  position: absolute;
+
+  top: 10%;
+  left: 50%;
+
+  font-size: 28px;
+
+  transform: translateX(-50%);
+}
+
+/* =================================
+   HERO SCROLL
+================================= */
+
+.hero-scroll {
+  position: absolute;
+
+  bottom: 2%;
+  right: 7%;
+}
+
+.hero-scroll-link {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #777;
+
+  text-decoration: none;
+
+  font-size: 16px;
+
+  transition: color 0.25s ease;
+}
+
+.hero-scroll-link:hover {
+  color: #111;
+}
+
+.hero-scroll-arrow {
+  display: inline-block;
+
+  font-size: 24px;
+  line-height: 1;
+}

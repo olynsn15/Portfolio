@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import type { Project } from "@/data/projects";
+import { usePageTransition } from "@/components/PageTransition";
 
 interface ProjectCardProps {
   project: Project;
@@ -11,8 +11,20 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, number }: ProjectCardProps) {
+  const { navigate } = usePageTransition();
+
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+
+    navigate(`/projects/${project.slug}`);
+  };
+
   return (
-    <Link href={`/projects/${project.slug}`} className="project-card">
+    <a
+      href={`/projects/${project.slug}`}
+      className="project-card"
+      onClick={handleClick}
+    >
       {/* IMAGE */}
       <div className="project-card-image">
         <Image
@@ -54,6 +66,6 @@ export default function ProjectCard({ project, number }: ProjectCardProps) {
 
       {/* DESCRIPTION */}
       <p className="project-description">{project.description}</p>
-    </Link>
+    </a>
   );
 }

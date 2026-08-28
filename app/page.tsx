@@ -1,9 +1,12 @@
 import Hero from "@/components/home/Hero";
+import Reveal from "@/components/Reveal";
 
 export default function Home() {
   return (
     <main>
-      <Hero />
+      <Reveal>
+        <Hero />
+      </Reveal>
     </main>
   );
 }

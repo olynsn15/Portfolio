@@ -1,5 +1,10 @@
 "use client";
 
+import "@/styles/navbar.css";
+
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+
 import { usePageTransition } from "./PageTransition";
 
 const navigation = [
@@ -19,27 +24,64 @@ const navigation = [
 
 export default function Navbar() {
   const { navigate } = usePageTransition();
+  const pathname = usePathname();
 
   return (
     <nav className="navbar">
+      {/* =========================
+          LOGO
+      ========================= */}
+
       <button
         className="navbar-logo"
-        onClick={() => navigate("/")}
+        onClick={() => {
+          if (pathname !== "/") {
+            navigate("/");
+          }
+        }}
         aria-label="Go to home"
       >
         CS
       </button>
 
+      {/* =========================
+          NAVIGATION
+      ========================= */}
+
       <div className="navbar-links">
-        {navigation.map((item) => (
-          <button
-            key={item.href}
-            className="navbar-link"
-            onClick={() => navigate(item.href)}
-          >
-            <span>{item.label}</span>
-          </button>
-        ))}
+        {navigation.map((item) => {
+          const isActive =
+            item.href === "/"
+              ? pathname === "/"
+              : pathname.startsWith(item.href);
+
+          return (
+            <button
+              key={item.href}
+              type="button"
+              className={`navbar-link ${isActive ? "is-active" : ""}`}
+              onClick={() => {
+                if (!isActive) {
+                  navigate(item.href);
+                }
+              }}
+            >
+              <motion.span
+                className="navbar-link-text"
+                initial={{ x: 0 }}
+                whileHover={{
+                  y: [0, -6, 0],
+                }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeInOut",
+                }}
+              >
+                {item.label}
+              </motion.span>
+            </button>
+          );
+        })}
       </div>
     </nav>
   );
