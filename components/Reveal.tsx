@@ -7,12 +7,14 @@ interface RevealProps {
   children: ReactNode;
   delay?: number;
   className?: string;
+  onRevealComplete?: () => void;
 }
 
 export default function Reveal({
   children,
   delay = 0,
   className,
+  onRevealComplete,
 }: RevealProps) {
   return (
     <motion.div
@@ -29,12 +31,15 @@ export default function Reveal({
         once: true,
         amount: 0.05,
       }}
+      onAnimationComplete={() => {
+        onRevealComplete?.();
+      }}
       transition={{
         delay,
         type: "spring",
-        stiffness: 30,
-        damping: 14,
-        mass: 1.0,
+        stiffness: 120,
+        damping: 16,
+        mass: 0.7,
       }}
     >
       {children}

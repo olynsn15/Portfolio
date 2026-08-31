@@ -1,5 +1,7 @@
 import "@/styles/project-details.css";
 
+import type { Metadata } from "next";
+
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -11,6 +13,25 @@ interface ProjectDetailPageProps {
   params: Promise<{
     slug: string;
   }>;
+}
+
+export async function generateMetadata({
+  params,
+}: ProjectDetailPageProps): Promise<Metadata> {
+  const { slug } = await params;
+
+  const project = projects.find((project) => project.slug === slug);
+
+  if (!project) {
+    return {
+      title: "Project Not Found",
+    };
+  }
+
+  return {
+    title: `CS - ${project.title}`,
+    description: project.description,
+  };
 }
 
 export default async function ProjectDetailPage({

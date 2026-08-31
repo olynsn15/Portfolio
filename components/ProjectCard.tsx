@@ -44,28 +44,22 @@ export default function ProjectCard({ project, number }: ProjectCardProps) {
         />
       </div>
 
-      {/* META */}
-      <div className="project-card-meta">
-        <div className="project-card-meta-left">
-          <span className="project-card-number">
-            {String(number).padStart(2, "0")}
-          </span>
-
-          <span className="project-category">{project.category}</span>
-        </div>
-
-        <span className="project-year">{project.year}</span>
-      </div>
-
       {/* TITLE */}
       <div className="project-card-title-row">
         <h2 className="project-title">{project.title}</h2>
-
-        <span className="project-arrow">↗</span>
       </div>
 
-      {/* DESCRIPTION */}
-      <p className="project-description">{project.description}</p>
+      {/* TAGS */}
+      <div className="project-tags">
+        {project.tags.map((tag, index) => (
+          <span key={tag}>
+            {tag}
+            {index < project.tags.length - 1 && (
+              <span className="project-tag-separator"> • </span>
+            )}
+          </span>
+        ))}
+      </div>
     </a>
   );
 }

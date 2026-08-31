@@ -66,17 +66,7 @@ export default function Navbar() {
                 }
               }}
             >
-              <motion.span
-                className="navbar-link-text"
-                initial={{ x: 0 }}
-                whileHover={{
-                  y: [0, -6, 0],
-                }}
-                transition={{
-                  duration: 0.5,
-                  ease: "easeInOut",
-                }}
-              >
+              <motion.span className="navbar-link-text">
                 {item.label}
               </motion.span>
             </button>

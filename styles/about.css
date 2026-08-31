@@ -4,10 +4,8 @@
 
 .about-page {
   width: 100%;
-
   min-height: 100vh;
-
-  padding: 140px 7vw 0;
+  padding: 80px 7vw 0;
 }
 
 /* =========================================
@@ -16,24 +14,6 @@
 
 .about-intro {
   padding-bottom: 160px;
-}
-
-.about-eyebrow,
-.section-header {
-  display: flex;
-
-  justify-content: space-between;
-  align-items: center;
-
-  padding-bottom: 20px;
-
-  border-bottom: 1px solid #ddd;
-
-  font-size: 13px;
-
-  letter-spacing: 0.04em;
-
-  color: #777;
 }
 
 .about-headline {

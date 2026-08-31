@@ -1,11 +1,17 @@
 "use client";
 
+import { useState } from "react";
+
 import "@/styles/about.css";
 
 import { experiences } from "@/data/experience";
 import Reveal from "@/components/Reveal";
+import Typewriter from "@/components/Typewriter";
 
 export default function About() {
+  const [introRevealed, setIntroRevealed] = useState(false);
+  const [experienceRevealed, setExperienceRevealed] = useState(false);
+
   return (
     <main className="about-page">
       {/* =========================================
@@ -13,23 +19,32 @@ export default function About() {
       ========================================= */}
 
       <section className="about-intro">
+        {/* ABOUT ME */}
+
         <Reveal>
           <div className="section-header">
             <span>ABOUT ME</span>
           </div>
         </Reveal>
 
-        <Reveal delay={0.1}>
+        {/* TYPEWRITER */}
+
+        <Reveal delay={0.1} onRevealComplete={() => setIntroRevealed(true)}>
           <div className="about-headline">
             <h1>
-              Well hello
-              <br />
-              <span className="about-typewriter">there!</span>
+              <Typewriter
+                text="Well hello there!"
+                start={introRevealed}
+                speed={50}
+                className="about-typewriter"
+              />
             </h1>
           </div>
         </Reveal>
 
-        <Reveal delay={0.2}>
+        {/* INTRO TEXT */}
+
+        <Reveal delay={0.4}>
           <div className="about-intro-grid">
             <div className="about-intro-text">
               <p>
@@ -59,23 +74,35 @@ export default function About() {
       ========================================= */}
 
       <section className="about-section about-experience">
+        {/* SECTION HEADER */}
+
         <Reveal>
           <div className="section-header">
             <span>EXPERIENCE</span>
           </div>
         </Reveal>
 
-        <Reveal delay={0.1}>
+        {/* TYPEWRITER */}
+
+        <Reveal
+          delay={0.1}
+          onRevealComplete={() => setExperienceRevealed(true)}
+        >
           <div className="about-headline">
             <h1>
-              Some of
-              <br />
-              <span className="about-typewriter">the things I did</span>
+              <Typewriter
+                text="What shaped me"
+                start={experienceRevealed}
+                speed={50}
+                className="about-typewriter"
+              />
             </h1>
           </div>
         </Reveal>
 
-        <Reveal delay={0.2}>
+        {/* EXPERIENCE LIST */}
+
+        <Reveal delay={0.4}>
           <div className="experience-list">
             {experiences.map((experience) => (
               <div key={experience.title} className="experience-item">
@@ -90,7 +117,9 @@ export default function About() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.3}>
+        {/* CV */}
+
+        <Reveal delay={0.1}>
           <div className="about-cv">
             <a
               href="/cv.pdf"
