@@ -55,7 +55,7 @@ export default function ProjectCard({ project, number }: ProjectCardProps) {
           <span key={tag}>
             {tag}
             {index < project.tags.length - 1 && (
-              <span className="project-tag-separator"> • </span>
+              <span className="project-tag-separator"> - </span>
             )}
           </span>
         ))}

@@ -46,16 +46,11 @@ export default function About() {
 
         <Reveal delay={0.4}>
           <div className="about-intro-grid">
-            <div className="about-intro-text">
+            <div>
               <p>
                 I&apos;m Carolyn, a Mobile Application and Technology student
                 and Junior iOS Developer who enjoys turning ideas into
                 thoughtful digital experiences.
-              </p>
-
-              <p>
-                I&apos;m curious by nature, always learning, and happiest when I
-                get to build something with other people.
               </p>
 
               <p>
@@ -108,7 +103,7 @@ export default function About() {
               <div key={experience.title} className="experience-item">
                 <div className="experience-main">
                   <h3>{experience.title}</h3>
-                  <p>{experience.role}</p>
+                  <p>{experience.location}</p>
                 </div>
 
                 <div className="experience-year">{experience.year}</div>

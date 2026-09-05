@@ -1,23 +1,23 @@
 export interface Experience {
   year: string;
   title: string;
-  role: string;
+  location: string;
 }
 
 export const experiences: Experience[] = [
   {
     year: "2025 — PRESENT",
-    title: "Apple Developer Academy",
-    role: "iOS Developer · Designer",
+    title: "Junior iOS Developer (Learner)",
+    location: "Apple Developer Academy",
   },
   {
-    year: "2024 — PRESENT",
-    title: "BINUS University",
-    role: "Mobile Application & Technology",
+    year: "2024 — 2026",
+    title: "SASC Senior Scholarship Mentor",
+    location: "BINUS University",
   },
   {
     year: "2024",
-    title: "TFISC",
-    role: "Education · Community Program",
+    title: "Activist, CP : Education",
+    location: "Teach for Indonesia Student Community",
   },
 ];

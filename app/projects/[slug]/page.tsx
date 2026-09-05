@@ -53,8 +53,6 @@ export default async function ProjectDetailPage({
         <section className="project-detail-header">
           <ProjectBackLink className="project-back" />
 
-          <p className="project-detail-category">{project.category}</p>
-
           <h1>{project.title}</h1>
 
           <p className="project-detail-description">{project.description}</p>

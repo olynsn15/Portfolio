@@ -105,7 +105,7 @@ export default function Hero() {
           }}
         >
           <Link href="/about" className="hero-scroll-link">
-            <span>Know more about me</span>
+            <span>Get to know me ^^</span>
 
             <motion.span
               className="hero-scroll-arrow"
