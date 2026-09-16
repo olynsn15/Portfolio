@@ -7,6 +7,7 @@ import "@/styles/about.css";
 import { experiences } from "@/data/experience";
 import Reveal from "@/components/Reveal";
 import Typewriter from "@/components/Typewriter";
+import Image from "next/image";
 
 export default function About() {
   const [introRevealed, setIntroRevealed] = useState(false);
@@ -27,41 +28,52 @@ export default function About() {
           </div>
         </Reveal>
 
-        {/* TYPEWRITER */}
+        <div className="about-intro-grid">
+          {/* LEFT — INTRO */}
+          <div className="about-intro-content">
+            {/* TYPEWRITER */}
+            <Reveal delay={0.1} onRevealComplete={() => setIntroRevealed(true)}>
+              <div className="about-headline">
+                <h1>
+                  <Typewriter
+                    text="Well hello there!"
+                    start={introRevealed}
+                    speed={50}
+                    className="about-typewriter"
+                  />
+                </h1>
+              </div>
+            </Reveal>
 
-        <Reveal delay={0.1} onRevealComplete={() => setIntroRevealed(true)}>
-          <div className="about-headline">
-            <h1>
-              <Typewriter
-                text="Well hello there!"
-                start={introRevealed}
-                speed={50}
-                className="about-typewriter"
-              />
-            </h1>
+            {/* INTRO TEXT */}
+            <Reveal delay={0.4}>
+              <div className="about-intro-text">
+                <p>
+                  I&apos;m Carolyn, a Mobile Application and Technology student
+                  and Junior iOS Developer who enjoys turning ideas into
+                  thoughtful digital experiences.
+                </p>
+
+                <p>
+                  I like exploring ideas from both the product and technical
+                  side. I enjoy moving between design and development — thinking
+                  about how something should feel, how it should work, and how
+                  the two can come together into one experience.
+                </p>
+              </div>
+            </Reveal>
           </div>
-        </Reveal>
 
-        {/* INTRO TEXT */}
-
-        <Reveal delay={0.4}>
-          <div className="about-intro-grid">
-            <div>
-              <p>
-                I&apos;m Carolyn, a Mobile Application and Technology student
-                and Junior iOS Developer who enjoys turning ideas into
-                thoughtful digital experiences.
-              </p>
-
-              <p>
-                I like exploring ideas from both the product and technical side.
-                I enjoy moving between design and development — thinking about
-                how something should feel, how it should work, and how the two
-                can come together into one experience.
-              </p>
-            </div>
+          {/* RIGHT — PHOTO */}
+          <div className="about-intro-photo">
+            <Image
+              src="/test.jpg"
+              alt="Carolyn Santana"
+              width={600}
+              height={750}
+            />
           </div>
-        </Reveal>
+        </div>
       </section>
 
       {/* =========================================

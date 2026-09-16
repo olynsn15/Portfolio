@@ -1,12 +1,12 @@
 import "@/styles/project-details.css";
 
 import type { Metadata } from "next";
-
-import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { projects } from "@/data/projects";
 import ProjectBackLink from "@/components/ProjectBackLink";
+import ProjectSlideshow from "@/components/ProjectSlideshow";
 import Reveal from "@/components/Reveal";
 
 interface ProjectDetailPageProps {
@@ -39,87 +39,85 @@ export default async function ProjectDetailPage({
 }: ProjectDetailPageProps) {
   const { slug } = await params;
 
-  const project = projects.find((project) => project.slug === slug);
+  const currentIndex = projects.findIndex((project) => project.slug === slug);
+  const project = projects[currentIndex];
 
   if (!project) {
     notFound();
   }
 
+  const nextProject = projects[(currentIndex + 1) % projects.length];
+
   return (
     <main className="project-detail">
-      {/* HEADER */}
-
       <Reveal>
-        <section className="project-detail-header">
-          <ProjectBackLink className="project-back" />
+        <ProjectBackLink className="project-back" />
 
-          <h1>{project.title}</h1>
+        <div className="project-detail-grid">
+          {/* LEFT — PROJECT INFORMATION */}
+          <div className="project-detail-info">
+            <div className="project-heading">
+              <span className="project-year">{project.year}</span>
 
-          <p className="project-detail-description">{project.description}</p>
+              <h1>{project.title}</h1>
 
-          <div className="project-meta">
-            <div>
-              <span>YEAR</span>
-              <p>{project.year}</p>
+              <p className="project-description">{project.description}</p>
             </div>
 
-            <div>
-              <span>PLATFORM</span>
-              <p>iOS</p>
-            </div>
+            <dl className="project-meta">
+              <div>
+                <dt>Type</dt>
+                <dd>{project.type}</dd>
+              </div>
 
-            <div>
-              <span>TECHNOLOGY</span>
-              <p>{project.tags.join(" · ")}</p>
-            </div>
+              <div>
+                <dt>Role</dt>
+                <dd>{project.role}</dd>
+              </div>
+
+              <div>
+                <dt>Tech stack</dt>
+                <dd>
+                  {project.tags.map((tag, index) => (
+                    <span key={tag}>
+                      {tag}
+                      {index < project.tags.length - 1 && (
+                        <span className="project-tag-sep">, </span>
+                      )}
+                    </span>
+                  ))}
+                </dd>
+              </div>
+            </dl>
+
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-github"
+              >
+                View on GitHub
+              </a>
+            )}
           </div>
-        </section>
-      </Reveal>
 
-      {/* HERO IMAGE */}
-
-      <Reveal delay={0.1}>
-        <section className="project-detail-image">
-          <Image
-            src={project.thumbnail}
-            alt={project.title}
-            width={1600}
-            height={1200}
-            priority
-          />
-        </section>
-      </Reveal>
-
-      {/* CONTENT */}
-
-      <Reveal delay={0.15}>
-        <section className="project-detail-content">
-          <div>
-            <p className="project-detail-label">ABOUT THE PROJECT</p>
+          {/* RIGHT — SLIDESHOW */}
+          <div className="project-detail-visual">
+            <ProjectSlideshow
+              images={[project.thumbnail, project.hoverImage]}
+              title={project.title}
+            />
           </div>
+        </div>
 
-          <div>
-            <p className="project-overview">{project.description}</p>
-
-            <div className="project-highlights">
-              <p>HIGHLIGHTS</p>
-
-              <ul>
-                {project.tags.map((tag) => (
-                  <li key={tag}>{tag}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      {/* FOOTER */}
-
-      <Reveal delay={0.1}>
-        <footer className="project-detail-footer">
-          <ProjectBackLink />
-        </footer>
+        {/* NEXT PROJECT */}
+        <div className="project-next">
+          <span>Next project</span>
+          <Link href={`/projects/${nextProject.slug}`}>
+            {nextProject.title}
+          </Link>
+        </div>
       </Reveal>
     </main>
   );

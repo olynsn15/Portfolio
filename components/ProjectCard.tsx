@@ -50,15 +50,8 @@ export default function ProjectCard({ project, number }: ProjectCardProps) {
       </div>
 
       {/* TAGS */}
-      <div className="project-tags">
-        {project.tags.map((tag, index) => (
-          <span key={tag}>
-            {tag}
-            {index < project.tags.length - 1 && (
-              <span className="project-tag-separator"> - </span>
-            )}
-          </span>
-        ))}
+      <div className="project-type">
+        <span>{project.type}</span>
       </div>
     </a>
   );

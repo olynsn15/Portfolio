@@ -20,7 +20,7 @@ export default function ProjectBackLink({ className }: ProjectBackLinkProps) {
         navigate("/projects");
       }}
     >
-      ← Back to projects
+      ← Projects
     </Link>
   );
 }
