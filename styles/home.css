@@ -214,13 +214,51 @@
   transition: color 0.25s ease;
 }
 
+.hero-scroll-link {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  width: fit-content;
+  padding-bottom: 5px;
+
+  color: #777;
+  text-decoration: none;
+}
+
+/* Underline animation */
+.hero-scroll-link::after {
+  content: "";
+
+  position: absolute;
+  left: -2px;
+  bottom: 0;
+
+  width: calc(100% + 5px);
+  height: 1px;
+
+  background: #111;
+
+  transform: scaleX(0);
+  transform-origin: right;
+
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .hero-scroll-link:hover {
   color: #111;
 }
 
-.hero-scroll-arrow {
-  display: inline-block;
+.hero-scroll-link:hover::after,
+.hero-scroll-link:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
 
-  font-size: 24px;
+.hero-scroll-arrow {
+  display: inline-flex;
+  align-items: center;
   line-height: 1;
 }

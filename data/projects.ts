@@ -23,7 +23,7 @@ export const projects: Project[] = [
     thumbnail: "/window.svg",
     hoverImage: "/next.svg",
     tags: ["SwiftUI", "RT-DETR", "MedGemma"],
-    github: "",
+    github: "https://github.com",
   },
 
   {

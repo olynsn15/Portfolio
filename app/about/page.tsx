@@ -8,6 +8,7 @@ import { experiences } from "@/data/experience";
 import Reveal from "@/components/Reveal";
 import Typewriter from "@/components/Typewriter";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 export default function About() {
   const [introRevealed, setIntroRevealed] = useState(false);
@@ -135,7 +136,9 @@ export default function About() {
               className="about-cv-link"
             >
               View my CV
-              <span>→</span>
+              <span>
+                <ArrowRight size={22} strokeWidth={1.5} />
+              </span>
             </a>
           </div>
         </Reveal>

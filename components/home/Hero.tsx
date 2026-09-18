@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import MagneticTag from "./MagneticTag";
+import { ArrowRight } from "lucide-react";
 
 const titles = [
   {
@@ -118,7 +119,7 @@ export default function Hero() {
                 ease: "easeInOut",
               }}
             >
-              →
+              <ArrowRight size={22} strokeWidth={1.5} />
             </motion.span>
           </Link>
         </motion.div>

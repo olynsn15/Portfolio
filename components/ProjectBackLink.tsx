@@ -20,7 +20,8 @@ export default function ProjectBackLink({ className }: ProjectBackLinkProps) {
         navigate("/projects");
       }}
     >
-      ← Projects
+      <span className="project-back-arrow">←</span>
+      <span>Projects</span>
     </Link>
   );
 }

@@ -1,45 +1,26 @@
+"use client";
+
 import "@/styles/project-details.css";
 
-import type { Metadata } from "next";
-import Link from "next/link";
-import { notFound } from "next/navigation";
+import { useState } from "react";
+import Image from "next/image";
+import { notFound, useParams } from "next/navigation";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 import { projects } from "@/data/projects";
 import ProjectBackLink from "@/components/ProjectBackLink";
-import ProjectSlideshow from "@/components/ProjectSlideshow";
 import Reveal from "@/components/Reveal";
+import Typewriter from "@/components/Typewriter";
+import Link from "next/link";
 
-interface ProjectDetailPageProps {
-  params: Promise<{
-    slug: string;
-  }>;
-}
+export default function ProjectDetailPage() {
+  const params = useParams();
+  const slug = params.slug as string;
 
-export async function generateMetadata({
-  params,
-}: ProjectDetailPageProps): Promise<Metadata> {
-  const { slug } = await params;
-
-  const project = projects.find((project) => project.slug === slug);
-
-  if (!project) {
-    return {
-      title: "Project Not Found",
-    };
-  }
-
-  return {
-    title: `CS - ${project.title}`,
-    description: project.description,
-  };
-}
-
-export default async function ProjectDetailPage({
-  params,
-}: ProjectDetailPageProps) {
-  const { slug } = await params;
+  const [titleRevealed, setTitleRevealed] = useState(false);
 
   const currentIndex = projects.findIndex((project) => project.slug === slug);
+
   const project = projects[currentIndex];
 
   if (!project) {
@@ -50,74 +31,140 @@ export default async function ProjectDetailPage({
 
   return (
     <main className="project-detail">
+      {/* =========================================
+          BACK
+      ========================================= */}
+
       <Reveal>
         <ProjectBackLink className="project-back" />
+      </Reveal>
 
-        <div className="project-detail-grid">
-          {/* LEFT — PROJECT INFORMATION */}
-          <div className="project-detail-info">
-            <div className="project-heading">
-              <span className="project-year">{project.year}</span>
+      {/* =========================================
+          PROJECT INFORMATION
+      ========================================= */}
 
-              <h1>{project.title}</h1>
+      <section className="project-detail-header">
+        {/* TITLE + DESCRIPTION */}
 
-              <p className="project-description">{project.description}</p>
+        <Reveal delay={0.1} onRevealComplete={() => setTitleRevealed(true)}>
+          <div className="project-heading">
+            <h1>
+              <Typewriter
+                text={project.title}
+                start={titleRevealed}
+                speed={50}
+                className="project-typewriter"
+              />
+            </h1>
+
+            <p className="project-description">{project.description}</p>
+          </div>
+        </Reveal>
+
+        {/* PROJECT DETAILS */}
+
+        <Reveal delay={0.1}>
+          <dl className="project-meta">
+            <div>
+              <dt>Year</dt>
+              <dd>{project.year}</dd>
             </div>
 
-            <dl className="project-meta">
-              <div>
-                <dt>Type</dt>
-                <dd>{project.type}</dd>
-              </div>
+            <div>
+              <dt>Type</dt>
+              <dd>{project.type}</dd>
+            </div>
 
-              <div>
-                <dt>Role</dt>
-                <dd>{project.role}</dd>
-              </div>
+            <div>
+              <dt>Role</dt>
+              <dd>{project.role}</dd>
+            </div>
 
-              <div>
-                <dt>Tech stack</dt>
-                <dd>
-                  {project.tags.map((tag, index) => (
-                    <span key={tag}>
-                      {tag}
-                      {index < project.tags.length - 1 && (
-                        <span className="project-tag-sep">, </span>
-                      )}
-                    </span>
-                  ))}
-                </dd>
-              </div>
-            </dl>
+            <div>
+              <dt>Tech stack</dt>
+              <dd>
+                {project.tags.map((tag, index) => (
+                  <span key={tag}>
+                    {tag}
 
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-github"
-              >
-                View on GitHub
-              </a>
-            )}
+                    {index < project.tags.length - 1 && (
+                      <span className="project-tag-sep">, </span>
+                    )}
+                  </span>
+                ))}
+              </dd>
+            </div>
+          </dl>
+        </Reveal>
+      </section>
+
+      {/* =========================================
+          PROJECT IMAGES
+      ========================================= */}
+
+      <section className="project-gallery-section">
+        <Reveal delay={0.1}>
+          <div className="project-gallery-header">
+            <span>PROJECT IMAGES</span>
           </div>
 
-          {/* RIGHT — SLIDESHOW */}
-          <div className="project-detail-visual">
-            <ProjectSlideshow
-              images={[project.thumbnail, project.hoverImage]}
-              title={project.title}
-            />
-          </div>
-        </div>
+          <div className="project-detail-gallery">
+            <div className="project-gallery-item">
+              <Image
+                src={project.thumbnail}
+                alt={`${project.title} project preview`}
+                fill
+                sizes="(max-width: 768px) 100vw, 450px"
+              />
+            </div>
 
-        {/* NEXT PROJECT */}
-        <div className="project-next">
+            <div className="project-gallery-item">
+              <Image
+                src={project.hoverImage}
+                alt={`${project.title} alternate project preview`}
+                fill
+                sizes="(max-width: 768px) 100vw, 450px"
+              />
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* =========================================
+          GITHUB
+      ========================================= */}
+
+      {project.github && (
+        <Reveal delay={0.1}>
+          <div className="project-github-wrapper">
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-github"
+            >
+              <span>View on GitHub</span>
+              <span className="project-github-arrow">
+                <ArrowUpRight size={22} strokeWidth={1.5} />
+              </span>
+            </a>
+          </div>
+        </Reveal>
+      )}
+
+      {/* =========================================
+          NEXT PROJECT
+      ========================================= */}
+
+      <Reveal delay={0.1}>
+        <section className="project-next">
           <span>Next project</span>
+
           <Link href={`/projects/${nextProject.slug}`}>
-            {nextProject.title}
+            <span>{nextProject.title}</span>
+            <ArrowRight className="project-next-arrow" />
           </Link>
-        </div>
+        </section>
       </Reveal>
     </main>
   );
