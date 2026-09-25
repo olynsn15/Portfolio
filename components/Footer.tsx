@@ -33,7 +33,7 @@ export default function Footer() {
 
           <div className="footer-links">
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/olynsna/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -41,7 +41,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://github.com"
+              href="https://github.com/olynsn15"
               target="_blank"
               rel="noopener noreferrer"
             >

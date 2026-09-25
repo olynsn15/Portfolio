@@ -151,21 +151,6 @@ export default function ProjectDetailPage() {
           </div>
         </Reveal>
       )}
-
-      {/* =========================================
-          NEXT PROJECT
-      ========================================= */}
-
-      <Reveal delay={0.1}>
-        <section className="project-next">
-          <span>Next project</span>
-
-          <Link href={`/projects/${nextProject.slug}`}>
-            <span>{nextProject.title}</span>
-            <ArrowRight className="project-next-arrow" />
-          </Link>
-        </section>
-      </Reveal>
     </main>
   );
 }

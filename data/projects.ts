@@ -13,17 +13,31 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "on-her-own",
+    title: "On Her Own",
+    year: "2026",
+    type: "Research Report",
+    role: "Product Researcher",
+    description:
+      "A research project exploring how women navigate higher-education choices amid social expectations, and how digital products can better support their journey.",
+    thumbnail: "/window.svg",
+    hoverImage: "/next.svg",
+    tags: ["Notion", "Figma"],
+    github: "",
+  },
+
+  {
     slug: "dalx",
     title: "DALX",
-    year: "2025",
+    year: "2026",
     type: "iOS App",
     role: "UI/UX Designer & Software Engineer",
     description:
-      "A digital medical imaging experience designed to support interaction with DICOM files and annotations.",
+      "An AI/ML-powered application designed to support radiologists in interpreting chest X-rays by identifying potentially relevant areas and provides findings from X-ray analysis for review and validation.",
     thumbnail: "/window.svg",
     hoverImage: "/next.svg",
     tags: ["SwiftUI", "RT-DETR", "MedGemma"],
-    github: "https://github.com",
+    github: "",
   },
 
   {
@@ -33,11 +47,11 @@ export const projects: Project[] = [
     type: "iPad App",
     role: "Project & Product Manager",
     description:
-      "An interactive scenario-based app that helps parents and children practice social-emotional skills together.",
+      "An interactive emotion-learning app that helps children aged 3-6 recognize emotions through movement based scenarios with parental guidance, designed for short play sessions that fit busy family routines.",
     thumbnail: "/window.svg",
     hoverImage: "/globe.svg",
     tags: ["SwiftUI", "Vision", "LottieLab"],
-    github: "",
+    github: "https://github.com/olynsn15/feelo",
   },
 
   {
@@ -47,7 +61,7 @@ export const projects: Project[] = [
     type: "HiFi Prototype",
     role: "Solo UI/UX Designer",
     description:
-      "A visual reference tool that helps photographers discover and organize inspiration for their next shoot.",
+      "Shootboard is a photography-focused moodboard app that helps users discover, curate, and organize visual references for photoshoots.",
     thumbnail: "/next.svg",
     hoverImage: "/file.svg",
     tags: ["Figma"],
@@ -65,7 +79,7 @@ export const projects: Project[] = [
     thumbnail: "/globe.svg",
     hoverImage: "/window.svg",
     tags: ["SwiftUI", "Vision", "UIKit"],
-    github: "",
+    github: "https://github.com/olynsn15/Cekrec-CompVis",
   },
 
   {
@@ -75,11 +89,11 @@ export const projects: Project[] = [
     type: "iOS App",
     role: "Solo Developer",
     description:
-      "A playful social experience where users create their own villager persona and discover others through shared vibes.",
+      "A playful social app that lets users create their own villager persona and discover their “vibe similarity” with nearby users through playful animations and seamless connectivity.",
     thumbnail: "/file.svg",
     hoverImage: "/next.svg",
     tags: ["SwiftUI", "SpriteKit", "MultipeerConnectivity"],
-    github: "",
+    github: "https://github.com/olynsn15/Mimsy",
   },
 
   {
@@ -93,7 +107,7 @@ export const projects: Project[] = [
     thumbnail: "/file.svg",
     hoverImage: "/globe.svg",
     tags: ["SwiftUI", "Firebase", "Groq API"],
-    github: "",
+    github: "https://github.com/olynsn15/PlanAway",
   },
 
   {

@@ -262,3 +262,66 @@
   align-items: center;
   line-height: 1;
 }
+
+/* =================================
+   RESPONSIVE HERO
+================================= */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh;
+  }
+
+  .hero-inner {
+    min-height: 85svh;
+  }
+
+  .hero-name {
+    font-size: clamp(58px, 17vw, 110px);
+    line-height: 0.85;
+  }
+
+  .hero-tag {
+    font-size: clamp(10px, 2.8vw, 15px);
+    padding: 7px 12px;
+  }
+
+  .tag-ios {
+    top: 25%;
+    left: 6%;
+  }
+
+  .tag-design {
+    bottom: 16%;
+    left: 7%;
+  }
+
+  .tag-product {
+    bottom: 18%;
+    right: 7%;
+  }
+
+  .tag-builder {
+    top: 20%;
+    right: 5%;
+  }
+
+  .hero-star {
+    top: 8%;
+    font-size: 22px;
+  }
+
+  .hero-scroll {
+    right: 6%;
+    bottom: 4%;
+  }
+
+  .hero-scroll-link {
+    font-size: 14px;
+  }
+
+  .hero-scroll-arrow svg {
+    width: 19px;
+    height: 19px;
+  }
+}

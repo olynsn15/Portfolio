@@ -245,8 +245,12 @@
     padding: 110px 6vw 0;
   }
 
+  .section-header {
+    margin-bottom: 0px;
+  }
+
   .about-headline {
-    padding: 70px 0 80px;
+    padding: 60px 0 60px;
   }
 
   .about-intro-grid,

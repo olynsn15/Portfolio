@@ -3,6 +3,8 @@
 ========================================= */
 
 .navbar {
+  position: relative;
+
   width: 100%;
 
   display: flex;
@@ -10,6 +12,16 @@
   justify-content: space-between;
 
   padding: 32px 100px;
+
+  z-index: 100;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.navbar-header {
+  display: contents;
 }
 
 /* =========================================
@@ -42,7 +54,7 @@
 }
 
 /* =========================================
-   NAVIGATION LINKS
+   DESKTOP NAVIGATION
 ========================================= */
 
 .navbar-links {
@@ -151,23 +163,114 @@
 }
 
 /* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.navbar-menu-button {
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: #111;
+
+  cursor: pointer;
+}
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+.navbar-mobile-menu {
+  display: none;
+}
+
+/* =========================================
    MOBILE
 ========================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .navbar {
+    display: block;
+
     padding: 24px;
+
+    background: #f7f7f5;
   }
 
-  .navbar-links {
-    gap: 18px;
-  }
+  .navbar-header {
+    display: flex;
 
-  .navbar-link {
-    font-size: 16px;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
   }
 
   .navbar-logo {
     font-size: 26px;
+  }
+
+  .navbar-links-desktop {
+    display: none;
+  }
+
+  .navbar-menu-button {
+    display: inline-flex;
+  }
+
+  .navbar-mobile-menu {
+    display: block;
+
+    overflow: hidden;
+
+    width: 100%;
+  }
+
+  .navbar-mobile-links {
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 28px;
+    padding-bottom: 12px;
+  }
+
+  .navbar-mobile-link {
+    display: block;
+
+    width: 100%;
+
+    padding: 12px 0;
+
+    border: none;
+    border-bottom: 1px solid #e3e3e3;
+
+    background: transparent;
+
+    color: #777;
+
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 400;
+
+    text-align: left;
+
+    cursor: pointer;
+  }
+
+  .navbar-mobile-link:first-child {
+    border-top: 1px solid #e3e3e3;
+  }
+
+  .navbar-mobile-link.is-active {
+    color: #111;
   }
 }

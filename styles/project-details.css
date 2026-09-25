@@ -315,7 +315,7 @@
    TABLET
 ========================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .project-detail {
     padding: 70px 6vw 120px;
   }
@@ -431,10 +431,11 @@
    SMALL MOBILE
 ========================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .project-detail {
     padding-left: 5vw;
     padding-right: 5vw;
+    padding: 40px 7vw 140px;
   }
 
   .project-heading h1 {

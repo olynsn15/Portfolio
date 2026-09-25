@@ -34,7 +34,7 @@ export default function MagneticTag({
   });
 
   useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
+    const moveTag = (clientX: number, clientY: number) => {
       if (!ref.current) return;
 
       const rect = ref.current.getBoundingClientRect();
@@ -42,8 +42,8 @@ export default function MagneticTag({
       const centerX = rect.left + rect.width / 2;
       const centerY = rect.top + rect.height / 2;
 
-      const dx = event.clientX - centerX;
-      const dy = event.clientY - centerY;
+      const dx = clientX - centerX;
+      const dy = clientY - centerY;
 
       const distance = Math.sqrt(dx * dx + dy * dy);
 
@@ -60,10 +60,27 @@ export default function MagneticTag({
       }
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    const handlePointerMove = (event: PointerEvent) => {
+      moveTag(event.clientX, event.clientY);
+    };
+
+    const handlePointerDown = (event: PointerEvent) => {
+      moveTag(event.clientX, event.clientY);
+    };
+
+    const handlePointerUp = () => {
+      x.set(0);
+      y.set(0);
+    };
+
+    window.addEventListener("pointermove", handlePointerMove);
+    window.addEventListener("pointerdown", handlePointerDown);
+    window.addEventListener("pointerup", handlePointerUp);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener("pointerdown", handlePointerDown);
+      window.removeEventListener("pointerup", handlePointerUp);
     };
   }, [x, y]);
 
